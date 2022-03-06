@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+
+  client:
+    build:
+      context: .
+      dockerfile: ./examples/client/Dockerfile
+    command:
+      - ./client --list && ./client --add  && ./client --list
