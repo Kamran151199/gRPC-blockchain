@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: rpc-blockchain
+  namespace: golang
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rpc-server
+  template:
+    metadata:
+      name: server
+      labels:
+        app: rpc-server
+    spec:
+      containers:
+        - name: go-rpc-server
+          image: kamran/golang-blockchain-rpc-server  # Does not exist
+          ports:
+            - containerPort: 8080
