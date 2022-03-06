@@ -11,6 +11,8 @@ COPY . .
 
 RUN go build -o /blockchain
 
+EXPOSE 8080
+
 CMD ['/blockchain']
 
 
